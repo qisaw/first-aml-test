@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { get } from '../../rest-client'
+import { get } from '../../restClient'
 
 export const counterSlice = createSlice({
   name: 'horseList',

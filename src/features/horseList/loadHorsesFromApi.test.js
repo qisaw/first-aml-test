@@ -1,5 +1,3 @@
-import nock from 'nock'
-
 import {
   loadHorsesFromApi,
   selectHorses,
@@ -9,13 +7,14 @@ import {
   selectError,
 } from './counterSlice'
 import { setUpStore } from '../../app/store'
+import { getMockHttpServer } from '../../../testHelpers/mockServer'
 
 const createHorses = (num) => Array.from(Array(num), (_, i) => ({ name: `horse_${i}`, id: i }))
 
 describe('test loadHorsesFromApi', () => {
   let server 
   beforeEach(() => {
-    server = nock('http://localhost:3016')
+    server = getMockHttpServer()
   })
   it('should load horses from api and load them into state', async () => {
     const horses = createHorses(1)
