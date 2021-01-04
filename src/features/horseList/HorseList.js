@@ -18,8 +18,9 @@ export function HorseList() {
     dispatch(loadHorsesFromApi())
   }, [ dispatch ])
 
+  console.log(pageNum)
   useEffect(() => {
-    if(pageNum === 1 || pageNum <= numOfPages || isLoading)  { return }
+    if((pageNum <= numOfPages && pageNum >= 1) || isLoading)  { return }
     history.replace('/horses/page/1')
   }, [ pageNum, numOfPages, isLoading, history ])
 
