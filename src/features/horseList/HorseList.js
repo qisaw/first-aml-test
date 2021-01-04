@@ -16,7 +16,7 @@ export function HorseList() {
       {
         isLoading
           ? <Loading/>
-          : horses.map(horse => <HorseMenuItem horse={horse} id={horse.id} />)
+          : horses.map(horse => <HorseMenuItem horse={horse} key={horse.id} />)
       }
     </div>
   );
