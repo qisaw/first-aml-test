@@ -21,14 +21,15 @@ export const counterSlice = createSlice({
     loadHorses: state => {
       state.loading = true
       state.horses = []
+      state.error = ''
     },
     loadHorsesError: (state, action) => {
       state.horses = []
       state.loading = false
-      state.error = action.payload
+      state.error = action.payload.message
     },
     setHorsePage: (state, action) => {
-      state.page = action.payload.page
+      state.page = action.payload.message
     }
   },
 });
@@ -45,7 +46,8 @@ export const loadHorsesFromApi = () => async dispatch => {
     const { body } = await get('/horse')
     dispatch(loadHorsesComplete({ horses: body }))
   } catch (err) {
-    dispatch(loadHorsesError(err))
+    console.log(err)
+    dispatch(loadHorsesError({ message: err.message }))
   }
 };
 
@@ -55,5 +57,7 @@ export const loadHorsesFromApi = () => async dispatch => {
 export const selectHorses = state => state.horseList.horses;
 
 export const selectIsLoading = state => state.horseList.loading;
+
+export const selectError = state => state.horseList.error
 
 export default counterSlice.reducer;
