@@ -6,7 +6,7 @@ export const Pager = ({ numPages }) => {
   }
   return (
     <div>
-      {Array.from(Array(numPages), (_, i) => (<Link key={i} to={`/horses/page/${i}`}>{i}</Link>))}
+      {Array.from(Array(numPages), (_, i) => (<Link key={i} to={`/horses/page/${i+1}`}>{i+1}</Link>))}
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { get } from '../../restClient'
 
+const PAGE_SIZE = 10
+
 export const counterSlice = createSlice({
   name: 'horseList',
   initialState: {
@@ -60,6 +62,8 @@ export const selectIsLoading = state => state.horseList.loading;
 
 export const selectError = state => state.horseList.error
 
-export const selectNumPages = state => Math.ceil(selectHorses(state).length / 10)
+export const selectNumPages = state => Math.ceil(selectHorses(state).length / PAGE_SIZE)
+
+export const selectHorsesForPage = pageNum => state => selectHorses(state).slice((pageNum - 1) * PAGE_SIZE, pageNum * PAGE_SIZE)
 
 export default counterSlice.reducer;

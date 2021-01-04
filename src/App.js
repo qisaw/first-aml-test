@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" exact component={HorseList}/>
+          <Route path="/horses/page/:pageNum" exact component={HorseList}/>
         </Switch>
       </Router>
     </div>
