@@ -4,17 +4,25 @@ import { loadHorsesFromApi, selectHorsesForPage, selectIsLoading, selectNumPages
 import { Loading } from './Loading'
 import { HorseMenuItem } from './HorseMenuItem'
 import { Pager } from './Pager'
-import { useParams } from 'react-router'
+import { useParams, useHistory } from 'react-router'
 
 export function HorseList() {
   const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(loadHorsesFromApi())
-  }, [ dispatch ])
   const { pageNum } = useParams()
+  const history = useHistory()
   const horses = useSelector(selectHorsesForPage(pageNum))
   const isLoading = useSelector(selectIsLoading)
   const numOfPages = useSelector(selectNumPages)
+
+  useEffect(() => {
+    dispatch(loadHorsesFromApi())
+  }, [ dispatch ])
+
+  useEffect(() => {
+    if(pageNum === 1 || pageNum <= numOfPages || isLoading)  { return }
+    history.replace('/horses/page/1')
+  }, [ pageNum, numOfPages, isLoading, history ])
+
   return (
     <div>
       {
