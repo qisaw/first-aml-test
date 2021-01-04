@@ -1,3 +1,5 @@
 import React from 'react';
 
-export const HorseMenuItem = ({ horse }) => <div>{horse.name}</div>
+import styles from './HorseMenuItem.module.css';
+
+export const HorseMenuItem = ({ horse }) => <div className={styles.row}>{horse.name}</div>

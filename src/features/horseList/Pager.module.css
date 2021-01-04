@@ -1,0 +1,16 @@
+.pager {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  text-decoration: none;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.button:hover {
+  background: #87CEEB;
+}

@@ -1,0 +1,7 @@
+.row {
+  padding: 20px;
+  cursor: pointer;
+}
+.row:hover {
+  background: #87CEEB;
+}
