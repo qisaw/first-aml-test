@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { loadHorsesFromApi, selectHorsesForPage, selectIsLoading, selectNumPages } from './counterSlice'
+import { loadHorsesFromApi, selectHorsesForPage, selectIsLoading, selectNumPages } from './horseListSlice'
 import { Loading } from './Loading'
 import { HorseMenuItem } from './HorseMenuItem'
 import { Pager } from './Pager'

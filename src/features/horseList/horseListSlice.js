@@ -3,7 +3,7 @@ import { get } from '../../restClient'
 
 const PAGE_SIZE = 10
 
-export const counterSlice = createSlice({
+export const horseListSlice = createSlice({
   name: 'horseList',
   initialState: {
     horses: [],
@@ -36,7 +36,7 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { loadHorses, loadHorsesComplete, loadHorsesError, setHorsePage } = counterSlice.actions;
+export const { loadHorses, loadHorsesComplete, loadHorsesError, setHorsePage } = horseListSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
@@ -66,4 +66,4 @@ export const selectNumPages = state => Math.ceil(selectHorses(state).length / PA
 
 export const selectHorsesForPage = pageNum => state => selectHorses(state).slice((pageNum - 1) * PAGE_SIZE, pageNum * PAGE_SIZE)
 
-export default counterSlice.reducer;
+export default horseListSlice.reducer;

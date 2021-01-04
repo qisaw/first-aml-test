@@ -5,7 +5,7 @@ import {
   loadHorses,
   selectIsLoading,
   selectError,
-} from './counterSlice'
+} from './horseListSlice'
 import { setUpStore } from '../../app/store'
 import { getMockHttpServer } from '../../../testHelpers/mockServer'
 
