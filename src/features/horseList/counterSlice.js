@@ -60,4 +60,6 @@ export const selectIsLoading = state => state.horseList.loading;
 
 export const selectError = state => state.horseList.error
 
+export const selectNumPages = state => Math.ceil(selectHorses(state).length / 10)
+
 export default counterSlice.reducer;
