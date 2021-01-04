@@ -5,14 +5,14 @@ import {
   Route,
 } from "react-router-dom";
 
-import { Counter } from './features/counter/Counter';
+import { HorseList } from './features/horseList/HorseList';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" exact component={Counter}/>
+          <Route path="/" exact component={HorseList}/>
         </Switch>
       </Router>
     </div>
